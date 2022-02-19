@@ -2,6 +2,5 @@
 
 <ul>
   <li><a href ="https://github.com/victorehrich/Golang-Studies/tree/master/src/1-Hello_World"><p>1-Hello World</p></a></li>
-  <li>2-Declaração de variáveis</li>
-
+  <li><a href ="https://github.com/victorehrich/Golang-Studies/tree/master/src/2-Declare_Variables"><p>2-Declaração de variáveis</p></a></li>
 </ul>
