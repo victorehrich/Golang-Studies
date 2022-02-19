@@ -6,4 +6,5 @@
   <li>Declaração de variáveis</li>
   <li>Declaração de variáveis na região package, e redeclaração delas no bloco da função (shadowing)</li>
   <li>Visibilidade da variável</li>
+  <li>Conversões (Casting)</li>
 </ul>
