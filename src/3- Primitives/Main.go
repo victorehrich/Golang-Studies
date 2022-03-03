@@ -125,5 +125,8 @@ func main() {
 	//runes são int32
 	r := 'a'
 	fmt.Printf("%v %T", r, r)
+	fmt.Println()
 
+	fmt.Printf("%v %T", str[2], str[2])
+	fmt.Println()
 }
