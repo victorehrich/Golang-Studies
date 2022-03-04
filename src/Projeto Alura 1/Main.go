@@ -2,19 +2,23 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"os"
 	"os/exec"
+	"strconv"
+	"strings"
 )
 
-func main(){
+func main() {
 	var comand int = -1
 
 	fmt.Println("Bem vindo ao sistema, escolha a opção que deseja executar:")
-	comand = menu()
+	for {
+		comand = menu()
 
-	switch comand {
+		switch comand {
 		case 1:
-			fmt.Println("Monitorando. . .")
+			monitoramento()
 		case 2:
 			fmt.Println("Lista de logs:")
 		case 0:
@@ -23,11 +27,29 @@ func main(){
 		default:
 			fmt.Println("Ops, algo deu errado.")
 			os.Exit(-1)
+		}
+	}
+
+}
+
+func monitoramento() {
+	fmt.Println("Monitorando. . .")
+	site := "https://random-status-code.herokuapp.com/"
+	resp, err := http.Get((site))
+	if err != nil {
+		fmt.Println("Ops, ocorreu um erro: ", err)
+	} else {
+		holderStatusResp := strings.Trim(resp.Status, "200 ")
+		if strings.Split(strconv.Itoa(resp.StatusCode), "")[0] == "2" {
+			fmt.Println("Site:", site, "foi carregado com o status:", holderStatusResp)
+		} else {
+			fmt.Println("Site:", site, "esta com problemas; status: ", resp.Status)
+		}
 	}
 }
 
-func menu() int{
-	var loop bool = true;
+func menu() int {
+	var loop bool = true
 	var comand int = -1
 
 	for loop {
@@ -36,11 +58,11 @@ func menu() int{
 		fmt.Println("0-Sair")
 		fmt.Scan(&comand)
 
-		if (comand == 1 || comand == 2 || comand == 0){
-			fmt.Println("O comando escolhido foi:",comand)
+		if comand == 1 || comand == 2 || comand == 0 {
+			fmt.Println("O comando escolhido foi:", comand)
 			fmt.Println()
 			loop = false
-		} else{
+		} else {
 			consoleClear()
 			fmt.Println("Opção Inválida")
 		}
@@ -48,7 +70,7 @@ func menu() int{
 	return comand
 }
 
-func consoleClear(){
+func consoleClear() {
 	cmd := exec.Command("cmd", "/c", "cls")
 	cmd.Stdout = os.Stdout
 	cmd.Run()
