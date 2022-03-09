@@ -7,7 +7,11 @@ import (
 	"os/exec"
 	"strconv"
 	"strings"
+	"time"
 )
+
+const monitoramentos = 5
+const delay = 5
 
 func main() {
 	var comand int = -1
@@ -34,7 +38,20 @@ func main() {
 
 func monitoramento() {
 	fmt.Println("Monitorando. . .")
-	site := "https://random-status-code.herokuapp.com/"
+	sites := []string{"https://random-status-code.herokuapp.com/", "https://www.google.com/", "https://www.youtube.com/"}
+	for i := 0; i < monitoramentos; i++ {
+		for i, site := range sites {
+			fmt.Println("Site", i+1, "-", site)
+			testaSite(site)
+		}
+
+		time.Sleep(delay * time.Second)
+		fmt.Println("")
+	}
+
+	fmt.Println("")
+}
+func testaSite(site string) {
 	resp, err := http.Get((site))
 	if err != nil {
 		fmt.Println("Ops, ocorreu um erro: ", err)
