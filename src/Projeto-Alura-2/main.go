@@ -1,32 +1,33 @@
 package main
 
 import (
+	"Golang-Studies/src/Projeto-Alura-2/Clientes"
 	"Golang-Studies/src/Projeto-Alura-2/Contas"
 	"fmt"
 )
 
 func main() {
-	//esse primeiro não é muito recomendado
-	contaGuilherme := conta.ContaCorrente{"Guilherme", 529, 123456, 125.50}
-	contaFabio := conta.ContaCorrente{
-		Titular:       "Fabio",
-		NumeroAgencia: 528,
-		NumeroConta:   123457,
-		Saldo:         0,
+	contaBruno := conta.ContaCorrente{
+		Titular: clientes.Titular{
+			Nome:      "Bruno",
+			CPF:       "123.123.123.12",
+			Profissao: "Dev",
+		},
+		NumeroAgencia: 123,
+		NumeroConta:   123123,
 	}
-	var contaJulia *conta.ContaCorrente = new(conta.ContaCorrente)
-	contaJulia.Titular = "Julia"
 
-	fmt.Println(contaGuilherme)
-	fmt.Println(contaFabio)
-	fmt.Println(*contaJulia)
-
-	fmt.Println(contaGuilherme.Sacar(-1020))
-	fmt.Println(contaGuilherme.Depositar(-1020))
-	fmt.Println(contaGuilherme.Depositar(500))
-
-	fmt.Println(contaGuilherme.Transferir(-100, &contaFabio))
-	fmt.Println(contaGuilherme)
-	fmt.Println(contaFabio)
+	clienteAlysson := clientes.Titular{
+		Nome:      "Alysson",
+		CPF:       "123.123.123.13",
+		Profissao: "PO",
+	}
+	contaAlysson := conta.ContaCorrente{
+		Titular:       clienteAlysson,
+		NumeroAgencia: 123,
+		NumeroConta:   123124,
+	}
+	fmt.Println(contaBruno)
+	fmt.Println(contaAlysson)
 
 }
