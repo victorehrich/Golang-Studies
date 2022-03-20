@@ -1,6 +1,9 @@
 package conta
 
-import "Golang-Studies/src/Projeto-Alura-2/Clientes"
+import (
+	//"Golang-Studies/src/Projeto-Alura-2/Clientes"
+	clientes "victor/src/Projeto-Alura-2/Clientes"
+)
 
 type ContaPoupanca struct {
 	Titular       clientes.Titular
