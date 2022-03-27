@@ -1,8 +1,8 @@
 package main
 
 import (
-	"Golang-Studies/src/Projeto-Alura-2/Clientes"
-	"Golang-Studies/src/Projeto-Alura-2/Contas"
+	clientes "Programs/Golang-Studies/src/Projeto-Alura-2/Clientes"
+	conta "Programs/Golang-Studies/src/Projeto-Alura-2/Contas"
 	"fmt"
 )
 

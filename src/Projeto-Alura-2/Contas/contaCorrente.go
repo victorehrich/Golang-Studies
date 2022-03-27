@@ -1,6 +1,6 @@
 package conta
 
-import "Golang-Studies/src/Projeto-Alura-2/Clientes"
+import clientes "Programs/Golang-Studies/src/Projeto-Alura-2/Clientes"
 
 type ContaCorrente struct {
 	Titular       clientes.Titular
